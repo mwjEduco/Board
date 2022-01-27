@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.board.mappers.userMapper">
+ 	
+ 	<!-- 회원 목록 -->
+ 	<select id="userList" resultType="com.board.vo.UserVO">
+ 		select
+				user_id
+			  , user_pw
+			  , user_name
+			  , tel
+			  , user_reg_date
+			  , user_del
+		from user
+		order by user_id asc
+ 	</select>
+ 	
+ 	<!-- 로그인 -->
+ 	<select id="login" resultType="map">
+ 		select
+				user_id
+			  , user_pw
+			  , user_name
+			  , tel
+			  , user_reg_date
+			  , user_del
+		from user
+		where user_id = #{user_id} and user_pw = #{user_pw}
+ 	</select>
+ 	
+ 	
+ 	
+ 	
+</mapper>
